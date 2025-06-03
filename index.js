@@ -7,7 +7,7 @@ const app = express();
 dotenv.config();
 
 const port = 5000 || process.env.PORT;
-app.use(express.json()); // this make stack accept the json 
+app.use(express.json()); // this make stack accept the json files
 
 
 

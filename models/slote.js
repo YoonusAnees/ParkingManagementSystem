@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 
-
-const slotNameSchema = mongoose.Schema({
+// Subdocument Schema
+const slotNameSchema = new mongoose.Schema({
     slotName: {
         type: String,
-        unique:true
+        unique: true
     },
-      vehicleType: {
+    vehicleType: {
         type: String,
         required: [true, "vehicleType is required"]
     },
@@ -14,38 +14,32 @@ const slotNameSchema = mongoose.Schema({
         type: Boolean,
         default: false
     },
-    capacity:{
-        type:Number
-    },
-
-
+    capacity: {
+        type: Number
+    }
+}, {
+    timestamps: true  // ✅ Correctly placed as second argument
 });
 
-
+// Parent Schema
 const sloteSchema = new mongoose.Schema({
     floorName: {
         type: String,
         required: [true, "Floor Name is required"],
-
     },
-     wingName: {
+    wingName: {
         type: String,
-        required: [true, "wingName  is required"]
-
+        required: [true, "wingName is required"]
     },
-    slots:[slotNameSchema],
-    
-
-    isFullyOccupied : {
+    slots: [slotNameSchema],
+    isFullyOccupied: {
         type: Boolean,
         default: false
     },
-    
     isActive: {
         type: Boolean,
         default: false
-    },
-
+    }
 });
 
 module.exports = mongoose.model("Slotes", sloteSchema);

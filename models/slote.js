@@ -6,16 +6,7 @@ const slotNameSchema = mongoose.Schema({
         type: String,
         unique:true
     },
-    isActive: {
-        type: Boolean,
-        default: false
-    },
-    timestamps: true
-
-});
-
-const capacitySchema = mongoose.Schema({
-    vehicleType: {
+      vehicleType: {
         type: String,
         required: [true, "vehicleType is required"]
     },
@@ -23,7 +14,10 @@ const capacitySchema = mongoose.Schema({
         type: Boolean,
         default: false
     },
-    timestamps: true
+    capacity:{
+        type:Number
+    },
+
 
 });
 
@@ -40,7 +34,7 @@ const sloteSchema = new mongoose.Schema({
 
     },
     slots:[slotNameSchema],
-    capacity:[capacitySchema],
+    
 
     isFullyOccupied : {
         type: Boolean,
@@ -51,7 +45,7 @@ const sloteSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    timestamps: true
+
 });
 
 module.exports = mongoose.model("Slotes", sloteSchema);

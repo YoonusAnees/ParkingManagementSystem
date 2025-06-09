@@ -21,9 +21,6 @@ app.get('/',(req,res)=>{
   res.send('Default Routes')
 })
 
-
-
-
 const startServer = async () => {
   try {
     await linkDatabase();
